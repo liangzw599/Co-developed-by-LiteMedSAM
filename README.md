@@ -7,9 +7,8 @@ A lightweight version of MedSAM for fast training and inference. The model was t
 
 # Obtained training test results
 
-- The model has been trained for 41 epochs in the early stage, and [the trained model](https://pan.baidu.com/s/1FFH9ykyp1lDzwhjD7-clyQ?pwd=1111) can be downloaded and place in  it at e.g., `workdir`
-- After 40 epochs of training the model, the inference test is performed. (There are 50 training data in total, which are divided into 40 training data and 10 test data)
-- Click to download test results [preds](https://pan.baidu.com/s/1Sm7WObAORZ2HM4KDOiSKoA?pwd=1111)
+- The model has been trained for 41 epochs in the early stage, and [the trained model](https://pan.baidu.com/s/1FFH9ykyp1lDzwhjD7-clyQ?pwd=1111) can be downloaded and place in  it at e.g., `MedSAM/workdir`
+
 
 
 ## Installation
