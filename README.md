@@ -11,8 +11,6 @@ A lightweight version of MedSAM for fast training and inference. The model was t
 
 
 
-## Installation
-
 # Installation
 
 The official recommendation is tested with: `Ubuntu 20.04` | Python `3.10` | `CUDA 11.8` | `Pytorch 2.1.2`
