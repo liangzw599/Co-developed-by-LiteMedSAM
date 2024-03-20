@@ -5,7 +5,8 @@ A lightweight version of MedSAM for fast training and inference. The model was t
 - Stage 1. Distill a lightweight image encoder `TinyViT` from the MedSAM image encoder `ViT` by imposing the image embedding outputs to be the same
 - State 2. Replace the MedSAM image encoder `ViT` with `TinyViT` and fine-tune the whole pipeline
 
-#Obtained training test results
+# Obtained training test results
+
 - The model has been trained for 41 epochs in the early stage, and the trained model can be downloaded and place in  it at e.g., workdir
 - After 40 epochs of training the model, the inference test is performed. (There are 50 training data in total, which are divided into 40 training data and 10 test data)
 - Click to download test results preds
