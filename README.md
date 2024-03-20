@@ -14,7 +14,7 @@ A lightweight version of MedSAM for fast training and inference. The model was t
 ## Installation
 
 The official recommendation is tested with: `Ubuntu 20.04` | Python `3.10` | `CUDA 11.8` | `Pytorch 2.1.2`
-Also, we have tested with: `CentOS 7.9` | Python `3.10` | `CUDA 12.0` | `Pytorch 2.1.2`
+Also, we have tested with: `CentOS 7.9` | Python `3.10.13` | `CUDA 12.2` | `Pytorch 2.1.2`
 
 1. Create a virtual environment `conda create -n medsam python=3.10 -y` and activate it `conda activate medsam`
 2. Install [Pytorch 2.0](https://pytorch.org/get-started/locally/)
