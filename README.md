@@ -51,7 +51,7 @@ python evaluation/compute_metrics.py -s test_demo/litemedsam-seg -g test_demo/gt
 ### Loss function
 1. `Boundary loss`is newly introduced.
 2. `AutomaticWeightedLoss` is added to adjust the weight of each loss function by means of adaptation.
-The definitions of Boundary loss and AutomaticWeightedLoss can be viewed at `utils/loss_op.py`
+The definitions of `Boundary loss` and `AutomaticWeightedLoss` can be viewed at `utils/loss_op.py`
 
 
 #### Single GPU
