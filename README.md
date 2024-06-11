@@ -30,21 +30,21 @@ Also, we have tested with: `CentOS 7.9` | Python `3.10.13` | `CUDA 12.2` | `Pyto
 4. Enter the MedSAM folder `cd MedSAM` and run `pip install -e .`
 
 
-## Model Training
+# Model Training
 
-### Data preprocessing
+## Data preprocessing
 1. Download the Lite-MedSAM [checkpoint](https://drive.google.com/file/d/18Zed-TUTsmr2zc5CHUWd5Tu13nb6vq6z/view?usp=sharing) and put it under the current directory.
 2. The data set is divided into the training set and the test set according to the ratio of 4:1.
 3. The ability to convert training data from 'npz' to 'npy' format was added to the training file: `train_one_gpu.py`
 
-### Loss function
+## Loss function
 1. `Boundary loss`is newly introduced.
 2. `AutomaticWeightedLoss` is added to adjust the weight of each loss function by means of adaptation.
 
 The definitions of `Boundary loss` and `AutomaticWeightedLoss` can be viewed at `loss_op.py`
 
 
-#### Single GPU
+## Single GPU
 
 We trained Lite-MedSAM on a single GPU, run:
 ```bash
@@ -70,7 +70,7 @@ python train_one_gpu.py \
 
 For additional command line arguments, see `python train_one_gpu.py -h`.
 
-## Acknowledgements
+# Acknowledgements
 We thank the authors of [MobileSAM](https://github.com/ChaoningZhang/MobileSAM) and [TinyViT](https://github.com/microsoft/Cream/tree/main/TinyViT) for making their source code publicly available.
 
 
