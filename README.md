@@ -32,6 +32,7 @@ Also, we have tested with: `CentOS 7.9` | Python `3.10.13` | `CUDA 12.2` | `Pyto
 ### Loss function
 1. `Boundary loss`is newly introduced.
 2. `AutomaticWeightedLoss` is added to adjust the weight of each loss function by means of adaptation.
+
 The definitions of `Boundary loss` and `AutomaticWeightedLoss` can be viewed at `utils/loss_op.py`
 
 
