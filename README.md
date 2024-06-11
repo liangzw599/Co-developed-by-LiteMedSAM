@@ -31,7 +31,7 @@ Also, we have tested with: `CentOS 7.9` | Python `3.10.13` | `CUDA 12.2` | `Pyto
 - Run the following command for a sanity test
 
 ```bash
-python CVPR24_LiteMedSAM_infer.py -i test_demo/imgs/ -o test_demo/segs
+python CVPR24_LiteMedSAM_infer_v2.py -i test_demo/imgs/ -o test_demo/segs
 ```
 
 ### Compute Metrics
@@ -45,37 +45,13 @@ python evaluation/compute_metrics.py -s test_demo/litemedsam-seg -g test_demo/gt
 
 ### Data preprocessing
 1. Download the Lite-MedSAM [checkpoint](https://drive.google.com/file/d/18Zed-TUTsmr2zc5CHUWd5Tu13nb6vq6z/view?usp=sharing) and put it under the current directory.
-2. Download the [demo dataset](https://zenodo.org/records/7860267). This tutorial assumes it is unzipped it to `data/FLARE22Train/`.
-3. Run the pre-processing script to convert the dataset to `npz` format:
-```bash
-python pre_CT_MR.py \
-    -img_path data/FLARE22Train/images \ ## path to training images
-    -img_name_suffix _0000.nii.gz \ ## extension of training images
-    -gt_path data/FLARE22Train/labels \ ## path to training labels
-    -gt_name_suffix .nii.gz \ ## extension of training labels
-    -output_path data \ ## path to save the preprocessed data
-    -num_workers 4 \ ## number of workers for preprocessing
-    -prefix CT_Abd_ \ ## prefix of the preprocessed data
-    -modality CT \ ## modality of the preprocessed data
-    -anatomy Abd \ ## anatomy of the preprocessed data
-    -window_level 40 \ ## window level for CT
-    -window_width 400 \ ## window width for CT
-    --save_nii ## Also save the preprocessed data in nii.gz format for visual inspection in other software
-```
-* Split dataset: first 40 cases of the demo dataset for training, saved in `MedSAM_train`, the last 10 for testing, saved in `MedSAM_test`.
-* For detailed usage of the script, see `python pre_CT_MR.py -h`.
+2. The data set is divided into the training set and the test set according to the ratio of 4:1.
+3. The ability to convert training data from 'npz' to 'npy' format was added to the training file: `train_one_gpu.py`
 
-4. Convert the training `npz` to `npy` format for training:
-```bash
-python npz_to_npy.py \
-    -npz_dir data/MedSAM_train \ ## path to the preprocessed npz training data
-    -npy_dir data/npy \ ## path to save the converted npy data for training
-    -num_workers 4 ## number of workers for conversion in parallel
-```
-
-### Fine-tune pretrained Lite-MedSAM
-
-> The training pipeline requires about 10GB GPU memory with a batch size of 4
+### Loss function
+1. `Boundary loss`is newly introduced.
+2. `AutomaticWeightedLoss` is added to adjust the weight of each loss function by means of adaptation.
+The definitions of Boundary loss and AutomaticWeightedLoss can be viewed at `utils/loss_op.py`
 
 
 #### Single GPU
@@ -103,25 +79,6 @@ python train_one_gpu.py \
 ```
 
 For additional command line arguments, see `python train_one_gpu.py -h`.
-
-#### Multi-GPU
-To fine-tune Lite-MedSAM on multiple GPUs, run:
-```bash
-python train_multi_gpus.py \
-    -i data/npy \ ## path to the training dataset
-    -task_name MedSAM-Lite-Box \
-    -pretrained_checkpoint lite_medsam.pth \
-    -work_dir ./work_dir_ddp \
-    -batch_size 16 \
-    -num_workers 8 \
-    -lr 0.0005 \
-    --data_aug \ ## use data augmentation
-    -world_size <WORLD_SIZE> \ ## Total number of GPUs will be used
-    -node_rank 0 \ ## if training on a single machine, set to 0
-    -init_method tcp://<MASTER_ADDR>:<MASTER_PORT>
-```
-Alternatively, you can use the provided `train_multi_gpus.sh` script to train on multiple GPUs. To resume interrupted training from a checkpoint, add `-resume <your_work_dir>` to the command line arguments instead of the checkpoint path for multi-GPU training;
-the script will automatically find the latest checkpoint in the work directory. For additional command line arguments, see `python train_multi_gpus.py -h`.
 
 
 
