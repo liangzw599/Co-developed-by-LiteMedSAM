@@ -7,7 +7,7 @@ A lightweight version of MedSAM for fast training and inference. The model was t
 
 # Obtained training test results
 
-- [The best model](https://pan.baidu.com/s/118DLCjvOycXFNuaEKrqr_g?pwd=1111) can be downloaded.
+- [The best model](https://pan.baidu.com/s/11Cs1hOmGBaPWtf3BBvFo8w?pwd=1111) can be downloaded.
 
 # Sanity test
 
