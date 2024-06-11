@@ -7,8 +7,16 @@ A lightweight version of MedSAM for fast training and inference. The model was t
 
 # Obtained training test results
 
-- [The best model](https://pan.baidu.com/s/118DLCjvOycXFNuaEKrqr_g?pwd=1111) can be downloaded. 
+- [The best model](https://pan.baidu.com/s/118DLCjvOycXFNuaEKrqr_g?pwd=1111) can be downloaded.
 
+# Sanity test
+
+- Run the following command for a sanity test.
+
+```bash
+python CVPR24_LiteMedSAM_infer_v2.py -i test_demo/imgs/ -o test_demo/segs
+```
+We have improved the original code to save the process of model transformation and shorten the test time.
 
 
 # Installation
