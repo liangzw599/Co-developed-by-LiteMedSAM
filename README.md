@@ -7,7 +7,7 @@ A lightweight version of MedSAM for fast training and inference. The model was t
 
 # Obtained training test results
 
-- [the best model](https://pan.baidu.com/s/118DLCjvOycXFNuaEKrqr_g?pwd=1111) can be downloaded and place in  it at e.g., `MedSAM/workdir`
+- [The best model](https://pan.baidu.com/s/118DLCjvOycXFNuaEKrqr_g?pwd=1111) can be downloaded and place in  it at e.g., `MedSAM/workdir`
 
 
 
