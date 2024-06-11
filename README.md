@@ -34,29 +34,6 @@ Also, we have tested with: `CentOS 7.9` | Python `3.10.13` | `CUDA 12.2` | `Pyto
 python CVPR24_LiteMedSAM_infer.py -i test_demo/imgs/ -o test_demo/segs
 ```
 
-
-### Build Docker
-
-```bash
-docker build -f Dockerfile -t litemedsam .
-```
-
-> Note: don't forget the `.` in the end
-
-Run the docker on the testing demo images
-
-```bash
-docker container run -m 8G --name litemedsam --rm -v $PWD/test_demo/imgs/:/workspace/inputs/ -v $PWD/test_demo/litemedsam-seg/:/workspace/outputs/ litemedsam:latest /bin/bash -c "sh predict.sh"
-```
-
-> Note: please run `chmod -R 777 ./*` if you run into `Permission denied` error.
-
-Save docker 
-
-```bash
-docker save litemedsam | gzip -c > litemedsam.tar.gz
-```
-
 ### Compute Metrics
 
 ```bash
