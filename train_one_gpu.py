@@ -20,7 +20,7 @@ from skimage.measure import label, regionprops
 
 from segment_anything.modeling import MaskDecoder, PromptEncoder, TwoWayTransformer
 from tiny_vit_sam import TinyViT
-from utils.loss_op111 import ShapeDistLoss, AutomaticWeightedLoss
+from utils.loss_op import ShapeDistLoss, AutomaticWeightedLoss
 import cv2
 import torch.nn.functional as F
 from itertools import chain
