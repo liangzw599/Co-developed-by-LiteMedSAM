@@ -38,10 +38,10 @@ Also, we have tested with: `CentOS 7.9` | Python `3.10.13` | `CUDA 12.2` | `Pyto
 3. The ability to convert training data from 'npz' to 'npy' format was added to the training file: `train_one_gpu.py`
 
 ## Loss function
-1. `Boundary loss`is newly introduced.
+1. `ShapeDistLoss`is newly introduced.
 2. `AutomaticWeightedLoss` is added to adjust the weight of each loss function by means of adaptation.
 
-The definitions of `Boundary loss` and `AutomaticWeightedLoss` can be viewed at `loss_op.py`
+The definitions of `ShapeDistLoss` and `AutomaticWeightedLoss` can be viewed at `loss_op.py`
 
 
 ## Single GPU
